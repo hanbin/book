@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @Value("${name}")
+    @Value("${name:hanbin}")
     private String name;
 
     @Value("${age}")
