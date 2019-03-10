@@ -1,5 +1,6 @@
 package cn.com.hanbinit.order.controller;
 
+`import cn.com.hanbinit.order.mapper.OrderMapper;
 import cn.com.hanbinit.order.model.Order;
 import cn.com.hanbinit.order.repository.OrderRepository;
 import cn.com.hanbinit.order.service.UserService;
@@ -22,6 +23,9 @@ public class OrderController {
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
     @HystrixCommand(fallbackMethod = "getUserInfoFailure")
     @GetMapping("/users/{userId}")
@@ -56,7 +60,8 @@ public class OrderController {
      */
     @GetMapping("/orders")
     public List<Order> queryAllOrders(){
-        return orderRepository.findAll();
+      //  return orderRepository.findAll();
+        return orderMapper.findAll();
     }
 
     /**
@@ -67,6 +72,7 @@ public class OrderController {
     @PostMapping("/orders")
     public Order createOrder(@RequestBody Order order){
         order.setCreateDate(new Date());
-        return orderRepository.save(order);
+       // return orderRepository.save(order);
+        return orderMapper.save(order.getTitle(), order.getCreateDate(), order.getCreateBy());
     }
 }
