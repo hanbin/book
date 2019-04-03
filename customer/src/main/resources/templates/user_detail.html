@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户基本信息</title>
+</head>
+<body>
+    用户ID：<span th:text="${user['id']}">id</span> <br>
+    用户名称：<span th:text="${user['nickname']}">name</span> <br>
+    用户年龄：<span th:text="${user['age']}">age</span>
+</body>
+</html>
