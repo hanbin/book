@@ -1,5 +1,8 @@
 package cn.com.hanbinit.customer.model;
 
+/**
+ * 用户基本信息
+ */
 public class User {
 
     private Integer id;

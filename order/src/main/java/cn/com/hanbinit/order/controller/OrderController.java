@@ -1,6 +1,6 @@
 package cn.com.hanbinit.order.controller;
 
-`import cn.com.hanbinit.order.mapper.OrderMapper;
+import cn.com.hanbinit.order.mapper.OrderMapper;
 import cn.com.hanbinit.order.model.Order;
 import cn.com.hanbinit.order.repository.OrderRepository;
 import cn.com.hanbinit.order.service.UserService;
@@ -30,7 +30,7 @@ public class OrderController {
     @HystrixCommand(fallbackMethod = "getUserInfoFailure")
     @GetMapping("/users/{userId}")
     public String getUserInfo(@PathVariable Long userId){
-        System.out.printf("这里要使用Ribbon来远程调用customer服务获取用户信息");
+        System.out.println("这里要使用Ribbon来远程调用customer服务获取用户信息");
         String userInfoStr = restTemplate.getForObject("http://customer/users/" + userId, String.class);
         return userInfoStr;
     }

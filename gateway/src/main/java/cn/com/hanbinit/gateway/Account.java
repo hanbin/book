@@ -1,6 +1,7 @@
 package cn.com.hanbinit.gateway;
 
-import org.apache.commons.lang.StringUtils;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class Account {
     private String username;
